@@ -26,11 +26,6 @@ keys, a character's name in Japanese, anything.
 Works on **Chrome, Edge, Vivaldi**, and any other Chromium-based browser that
 supports Manifest V3 extensions and the Side Panel API.
 
-## Screenshot
-
-*(Add a screenshot of the side panel and the right-click submenu here once
-you've loaded the extension — see `icons/icon128.png` for the app icon.)*
-
 ## Install (unpacked, for development or personal use)
 
 1. Download or clone this repository.
@@ -119,82 +114,5 @@ activate for the specific tab you right-clicked in or pressed a shortcut in,
 and only at that moment — never in the background. There are no network
 requests and no analytics anywhere in this codebase.
 
-## Roadmap ideas
-
-- Tagging / folders for organizing large snippet collections.
-- Full placeholder-cycling (tab between multiple `{{blanks}}` in one snippet).
-- Optional true cloud backend (with its own account system) for syncing
-  across different browsers/accounts, not just one browser's synced profile.
-
-## Publishing to GitHub
-
-1. Make sure you're in the project folder and it's a git repo:
-   ```bash
-   cd clipzy
-   git init
-   git add .
-   git commit -m "Initial commit: ClipZy v1.0.0"
-   git branch -M main
-   ```
-2. Create a new, empty repository on GitHub (don't initialize it with a
-   README — you already have one): go to
-   [github.com/new](https://github.com/new), name it `clipzy`, leave
-   everything else unchecked, click **Create repository**.
-3. Point your local repo at it and push:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/clipzy.git
-   git push -u origin main
-   ```
-4. On the GitHub repo page, click the gear icon next to **About** and add a
-   short description + topics (`browser-extension`, `chrome-extension`,
-   `clipboard`, `productivity`) so people can find it.
-5. Optional but recommended: go to **Releases → Draft a new release**, tag it
-   `v1.0.0`, and attach the zipped extension folder as a release asset, so
-   people can download a ready-to-load copy without cloning.
-
-## Publishing to the Chrome Web Store
-
-1. Zip the contents of the `clipzy` folder (not the folder itself —
-   `manifest.json` must be at the *root* of the zip, not inside a
-   subfolder). If you're on a Mac/Linux shell:
-   ```bash
-   cd clipzy
-   zip -r ../clipzy-store-upload.zip . -x "*.DS_Store" -x "generate_icons.py" -x "docs/*"
-   ```
-2. Go to the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole) and sign in with a Google account.
-3. Pay the one-time $5 USD registration fee if you haven't published before.
-4. Click **New Item**, upload `clipzy-store-upload.zip`.
-5. Fill in the store listing:
-   - **Description**: what ClipZy does and who it's for.
-   - **Screenshots**: at least one (1280×800 or 640×400) showing the side
-     panel and/or the right-click submenu in action.
-   - **Icon**: `icons/icon128.png` is already the right size.
-   - **Category**: Productivity.
-   - **Privacy practices**: since ClipZy uses `<all_urls>` as an *optional*
-     permission, briefly explain (as this README does) that it's only used
-     for the opt-in typed-shortcut feature and nothing is transmitted
-     anywhere.
-6. Submit for review. Chrome Web Store review typically takes anywhere from
-   a few hours to a few days, especially for the first submission.
-7. Once approved, the store listing URL is what you'd link from your GitHub
-   README's "Install" section.
-
-## Publishing to Microsoft Edge Add-ons
-
-Same idea, different (free) dashboard:
-
-1. Go to the [Microsoft Edge Add-ons Developer Dashboard](https://partner.microsoft.com/dashboard/microsoftedge/overview) and sign in
-   with a Microsoft account.
-2. **Submit a new extension**, upload the same zip you built for Chrome.
-3. Fill in the same listing details as above.
-4. Edge review is usually faster than Chrome's. Once approved, Edge users
-   can install it straight from the Edge Add-ons store.
-
-## Vivaldi
-
-Vivaldi users can install directly from the Chrome Web Store listing — no
-separate Vivaldi store submission is needed.
-
 ## License
-
 MIT — see [LICENSE](LICENSE).
