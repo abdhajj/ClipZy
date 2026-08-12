@@ -1,8 +1,8 @@
 # ClipZy: Your CTRL Stash
 
-A tiny browser extension for people who copy-paste the same bits of text over
-and over — email signatures, canned replies, addresses, code snippets, license
-keys, you name it. The name's the pitch: **clip**board, **zippy**.
+A simple browser extension for people who copy-paste the same text over
+and over — email signatures, template replies, addresses, code snippets, license
+keys, a character's name in Japanese, anything.
 
 - **Save instantly**: select any text on a page, right-click **ClipZy** →
   **"Save…"**.
