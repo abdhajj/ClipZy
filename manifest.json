@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "ClipZy: Your CTRL Stash",
+  "short_name": "ClipZy",
+  "version": "1.0.0",
+  "description": "Save text with a right-click, paste it back anywhere with one click from the right-click menu, or browse everything in the side panel.",
+  "author": "Your Name",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Open ClipZy",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "commands": {
+    "paste-pinned-1": {
+      "suggested_key": { "default": "Alt+Shift+1" },
+      "description": "ClipZy: paste pinned snippet #1"
+    },
+    "paste-pinned-2": {
+      "suggested_key": { "default": "Alt+Shift+2" },
+      "description": "ClipZy: paste pinned snippet #2"
+    },
+    "paste-pinned-3": {
+      "suggested_key": { "default": "Alt+Shift+3" },
+      "description": "ClipZy: paste pinned snippet #3"
+    },
+    "paste-pinned-4": {
+      "suggested_key": { "default": "Alt+Shift+4" },
+      "description": "ClipZy: paste pinned snippet #4"
+    }
+  },
+  "minimum_chrome_version": "116"
+}

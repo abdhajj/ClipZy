@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ClipZy — Your Ctrl Stash</title>
+<link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <img src="icons/icon48.png" alt="" class="brand-icon" />
+      <div class="brand-text">
+        <h1>ClipZy</h1>
+        <span class="tagline">Your Ctrl Stash</span>
+      </div>
+    </div>
+    <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M19.14 12.94c.04-.31.06-.62.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.03 7.03 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96a.5.5 0 0 0-.6.22L2.7 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94L2.82 14.5a.5.5 0 0 0-.12.64l1.92 3.32c.14.24.42.32.6.22l2.39-.96c.49.38 1.03.7 1.62.94l.36 2.54c.05.24.26.42.5.42h3.84c.24 0 .45-.18.5-.42l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.24.1.5 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Z"/></svg>
+    </button>
+  </header>
+
+  <section id="settingsPanel" class="settings-panel hidden">
+    <label class="switch-row">
+      <span>
+        Sync across my devices
+        <small>Uses your browser's built-in account sync. Limited to ~100 snippets / 8KB each.</small>
+      </span>
+      <input type="checkbox" id="syncToggle" />
+    </label>
+
+    <label class="switch-row">
+      <span>
+        Typed shortcuts <em>(beta)</em>
+        <small>Type a snippet's trigger (e.g. <code>;sig</code>) anywhere and it expands automatically. Requires an extra one-time permission — nothing is sent anywhere, it just lets the expansion script run on pages.</small>
+      </span>
+      <input type="checkbox" id="expansionToggle" />
+    </label>
+
+    <p class="settings-note">
+      <strong>Keyboard shortcuts:</strong> pin up to 4 snippets, then press
+      <code>Alt+Shift+1</code>–<code>Alt+Shift+4</code> to paste them instantly,
+      no menu needed. Customize the keys any time at your browser's
+      <code>chrome://extensions/shortcuts</code> page (or the <code>edge://</code> /
+      <code>vivaldi://</code> equivalent).
+    </p>
+
+    <div class="settings-actions">
+      <button id="exportBtn" class="text-btn">Export JSON</button>
+      <label class="text-btn" for="importInput">Import JSON</label>
+      <input type="file" id="importInput" accept="application/json" class="hidden" />
+      <button id="clearAllBtn" class="text-btn danger">Clear all</button>
+    </div>
+  </section>
+
+  <section class="add-box">
+    <textarea id="newSnippetText" placeholder="Type or paste text to save… Use {{name}} for a fill-in-later blank." rows="2"></textarea>
+    <input type="text" id="newSnippetTrigger" placeholder="Trigger (optional), e.g. ;sig" class="trigger-input" />
+    <button id="addBtn" class="primary-btn">Save</button>
+  </section>
+
+  <section class="search-box">
+    <svg viewBox="0 0 24 24" width="16" height="16" class="search-icon"><path fill="currentColor" d="M21 20.3l-5.4-5.4a7.5 7.5 0 1 0-1.4 1.4l5.4 5.4a1 1 0 0 0 1.4-1.4ZM4.5 10.5a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"/></svg>
+    <input type="text" id="searchInput" placeholder="Search saved snippets…" />
+  </section>
+
+  <main id="list" class="list" aria-live="polite">
+    <!-- snippet cards injected here -->
+  </main>
+
+  <p id="emptyState" class="empty-state hidden">
+    Nothing saved yet. Select text on any page, right-click <strong>ClipZy</strong> and choose<br>
+    <strong>“Save…”</strong> — or add text manually above.<br>
+    Once you've saved something, right-click any text field and hover<br>
+    <strong>ClipZy ▸</strong> to paste it straight back in.<br>
+    Give a snippet a trigger like <code>;sig</code> for typed shortcuts,<br>
+    or add a <code>{{blank}}</code> to fill in on paste.
+  </p>
+
+  <footer class="app-footer">
+    <span id="countLabel">0 snippets</span>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
